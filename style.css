@@ -421,6 +421,7 @@ a {
 .modal-desc {
     flex: 2;
     text-align: left;
+    overflow: hidden;
 }
 
 .close-modal {
