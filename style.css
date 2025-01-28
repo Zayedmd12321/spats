@@ -1,0 +1,576 @@
+
+/* styling html elements */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    z-index: 1;
+    width: 100%;
+    height: 4.5rem;
+    top: 0;
+    left: 0;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Designing Nav Bar */
+#navbar {
+    display: flex;
+    height: 100%;
+    top: 0;
+}
+
+/* Inserting a background using ::before  */
+#navbar::before {
+    content: "";
+    background-color: #113955;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Utilities of navbar */
+#logo {
+    margin: 0.1rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img {
+    height: 55px;
+    width: 58px;
+    margin: 5px 0px;
+    margin-right: 12px;
+}
+
+#logo span {
+    color: #fff;
+    font-weight: 600;
+}
+
+
+#accnt {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#accnt a {
+    margin: 20px;
+}
+
+#accnt svg:hover {
+    transform: scale(1.4);
+}
+
+
+#link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bars,.close{
+    display: none;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #113955;
+    list-style: none;
+    /* padding: 10px 0; */
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    border-bottom: 2px solid #cfcfcf;
+}
+
+.dropdown-menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.item {
+    list-style: none;
+}
+
+.item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0px 25px;
+    font-weight: 600;
+    position: relative;
+}
+
+.item a:hover {
+    color: #669bbc;
+}
+
+/* Giving the effect of underlining */
+
+.item a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #70b1da;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+
+
+.item a:hover::after {
+    transform: scaleX(1);
+}
+
+/* navbar ends  */
+
+/*front page*/
+.container {
+    width: 100%;
+    height: 87vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/bg.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container h1 {
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+}
+
+.container button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*Card Section*/
+#card-section {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.moving_text {
+    width: 20vw;
+    margin: auto;
+    color: #32CD32;
+}
+
+.card {
+    margin: 0.8rem;
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-width: 16.2rem;
+    height: 27.3rem;
+    box-shadow: 5px 2px 20px 0 rgba(43, 61, 73, 0.7);
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
+
+.book-image {
+    height: 66%;
+    width: 95%;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid black;
+}
+
+.book-image img {
+    height: 94%;
+    width: 91%;
+    margin-bottom: -0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    filter: contrast(1.55);
+}
+
+.price {
+    color: #28a745;
+    display: none;
+}
+
+.description {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.26rem;
+}
+
+.book-name {
+    font-weight: bold;
+}
+
+.author-name {
+    font-weight: 300;
+}
+
+.about {
+    font-family: "Poppins";
+    display: flex;
+    flex-direction: column;
+}
+
+.description button {
+    height: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.mybtn {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-img1,
+.btn-img2,
+.btn-img3 {
+    height: 100%;
+    float: right;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.wishlist:hover .btn-img1,
+.buy:hover .btn-img2 {
+    position: relative;
+    width: 100%;
+    bottom: 1rem;
+    border-radius: 0.5rem;
+    transform: translateX(1);
+}
+
+
+.wishlist:active .btn-img1 {
+    background: #9b0000;
+}
+
+.buy:active .btn-img2 {
+    background: #00689f;
+}
+
+.read-more:active {
+    background: #026e02;
+}
+
+.mybtn:hover .text {
+    color: transparent;
+}
+
+.btn-img1 {
+    background: #bd3737;
+}
+
+.btn-img2 {
+    background: #00a6ff;
+}
+
+.btn-img3 {
+    background: #05cc05;
+}
+
+.text {
+    position: relative;
+    bottom: -0.1rem;
+}
+
+.wishlist {
+    background: #FF4C4C;
+}
+
+.buy {
+    background: #00b7ff;
+}
+
+
+.read-more {
+    background: #5fdf63;
+}
+
+/* .read-more:hover .btn-img3{
+    transform: rotate(360deg);
+} */
+
+.read-more:hover {
+    background-color: #49ab4c;
+}
+
+.read-more:hover .text {
+    color: #fff !important;
+}
+
+.card:hover {
+    /* transform: translate(5px,-10px); */
+    box-shadow: 5px 2px 20px 5px rgba(30, 43, 52, 0.7);
+}
+
+.card:hover .price {
+    display: block;
+}
+
+/* card designing ends  */
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #f0f8ff;
+    margin-top: 3rem;
+    display: flex;
+    border-radius: 10px;
+    width: 43rem;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    height: 23rem;
+    border: 2px solid grey;
+}
+
+.modal-book-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    /* border-right: 2px solid grey; */
+}
+
+.modal-book-image img {
+    width: 11rem;
+    height: 17rem;
+}
+
+.modal-desc {
+    flex: 2;
+    text-align: left;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    top: -0.2rem;
+    right: 0.3rem
+}
+
+.close-modal span:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+.modal-title {
+    margin: 2.2rem 0rem 0.03rem 1rem;
+}
+
+.modal-author {
+    margin: 2.2px 0rem 1.5rem 1rem;
+    color: #555;
+}
+
+.modal-book-desc {
+    line-height: 1.2;
+    margin-left: 1rem;
+}
+
+
+
+
+/* footer  */
+.footer {
+    background-color: #23282f;
+    color: rgb(196, 193, 193);
+    padding: 2rem 1rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: rgb(196, 193, 193);
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-media a {
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #9ca3af;
+}
+
+.footer-bottom {
+    border-top: 1px solid #6b7280;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+@media only screen and (max-width:870px){
+    #logo a span{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:770px){
+    #link{
+        display: none;
+    }
+
+    #logo a span{
+        display: block;
+    }
+
+    #navbar{
+        justify-content: space-between;
+    }
+    .nav{
+        width: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        gap: 1.3rem;
+    }
+
+    .bars,.close {
+        color: #fff;
+        height: 24px;
+    }
+    
+    .bars{
+        display: block;
+    }
+
+    .close{
+        display: none;
+        z-index: 1;
+    }
+
+    .dropdown-menu{
+        position: relative;
+        background: none;
+    }
+
+    .dropdown-menu li{
+        border: none;
+    }
+}
+
+@media only screen and (max-width: 440px){
+    #logo a span{
+        display: none;
+    }
+}
