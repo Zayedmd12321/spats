@@ -416,12 +416,17 @@ a {
 .modal-book-image img {
     width: 11rem;
     height: 17rem;
+    filter: contrast(1.55);
 }
 
 .modal-desc {
     flex: 2;
     text-align: left;
-    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.modal-desc::-webkit-scrollbar{
+    display: none;
 }
 
 .close-modal {
@@ -567,6 +572,10 @@ a {
 
     .dropdown-menu li{
         border: none;
+    }
+
+    .modal-content{
+        width: 90vw;
     }
 }
 
