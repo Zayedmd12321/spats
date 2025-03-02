@@ -403,6 +403,11 @@ a {
     text-align: center;
     height: 23rem;
     border: 2px solid grey;
+    overflow-y: scroll;
+}
+
+.modal-content::-webkit-scrollbar{
+    display: none;
 }
 
 .modal-book-image {
@@ -417,16 +422,12 @@ a {
     width: 11rem;
     height: 17rem;
     filter: contrast(1.55);
+    padding-left: 8px;
 }
 
 .modal-desc {
     flex: 2;
     text-align: left;
-    overflow-y: scroll;
-}
-
-.modal-desc::-webkit-scrollbar{
-    display: none;
 }
 
 .close-modal {
@@ -543,12 +544,16 @@ a {
     #navbar{
         justify-content: space-between;
     }
+
     .nav{
-        width: auto;
         flex-direction: column;
         justify-content: flex-start;
         margin-top: 2rem;
         gap: 1.3rem;
+    }
+
+    .item{
+        margin: 10px;
     }
 
     .bars,.close {
@@ -577,10 +582,55 @@ a {
     .modal-content{
         width: 90vw;
     }
+
+    .book-image p{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 440px){
+    .html::-webkit-scrollbar{
+        display: none;
+    }
+
     #logo a span{
         display: none;
     }
+
+    .modal-content{
+        flex-direction: column;
+    }
+
+    .modal-book-image img{
+        width: 8rem;
+        height: 11rem;
+        padding-top: 8px;
+    }
+
+    .close-modal{
+        position: fixed;
+        top: 61px;
+        right: 6vb;
+    }
+
+    .footer-container{
+        flex-direction: column;
+    }
+
+    .footer-section{
+        display: flex;
+        flex-direction: column;
+        align-items:center ;
+        margin: 5px;
+    }
+
+    .links{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    /* #footer-quick-link ul li{
+        margin: 5px 2px;
+    } */
 }
