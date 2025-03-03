@@ -598,7 +598,8 @@ a {
     }
 
     .modal-content{
-        flex-direction: column;
+        display: inline-table;
+        position: relative;
     }
 
     .modal-book-image img{
@@ -608,9 +609,7 @@ a {
     }
 
     .close-modal{
-        position: fixed;
-        top: 61px;
-        right: 6vb;
+        position: absolute;
     }
 
     .footer-container{
@@ -629,8 +628,4 @@ a {
         display: flex;
         justify-content: space-evenly;
     }
-
-    /* #footer-quick-link ul li{
-        margin: 5px 2px;
-    } */
 }
