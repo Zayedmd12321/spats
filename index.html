@@ -41,11 +41,11 @@
                     <li class="item dropdown">
                         <a id="Categories⬇️">Categories⬇️</a>
                         <ul class="dropdown-menu">
-                            <li><a id="Fiction" class="categories">Fiction</a></li>
-                            <li><a id="Non-Fiction" class="categories">Non-Fiction</a></li>
-                            <li><a id="Science" class="categories">Science</a></li>
-                            <li><a id="Horror" class="categories">Horror</a></li>
-                            <li><a id="Fantasy" class="categories">Fantasy</a></li>
+                            <li><a href="#cards-section" id="Fiction" class="categories" onclick="hamberger()">Fiction</a></li>
+                            <li><a href="#cards-section" id="Non-Fiction" class="categories" onclick="hamberger()">Non-Fiction</a></li>
+                            <li><a href="#cards-section" id="Science" class="categories" onclick="hamberger()">Science</a></li>
+                            <li><a href="#cards-section" id="Horror" class="categories" onclick="hamberger()">Horror</a></li>
+                            <li><a href="#cards-section" id="Fantasy" class="categories" onclick="hamberger()">Fantasy</a></li>
                         </ul>
                     </li>
                     <li class="item"><a href="#footer-about" onclick="hamberger()">About</a></li>
@@ -148,6 +148,7 @@
         }
 
         function hamberger() {
+            document.getElementsByClassName('dropdown-menu')[0].style.display = "none";
             if(window.innerWidth<=770){
                 const bars = document.getElementsByClassName('bars')[0];
                 const cross = document.getElementsByClassName('close')[0];
@@ -166,6 +167,7 @@
                     link.style.position = "absolute";
                     link.style.height = "100vh";
                     link.style.background = "rgba(0, 0, 0, 0.8)";
+                    document.getElementsByClassName('dropdown-menu')[0].style.display = "block";
                 }
             }
         }
