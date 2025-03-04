@@ -37,15 +37,15 @@
 
             <div id="link">
                 <ul class="nav">
-                    <li class="item"><a href="">Home</a></li>
+                    <li class="item"><a href="index.html">Home</a></li>
                     <li class="item dropdown">
-                        <a href="#">Categories⬇️</a>
+                        <a id="Categories⬇️">Categories⬇️</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Fiction</a></li>
-                            <li><a href="#">Non-Fiction</a></li>
-                            <li><a href="#">Science</a></li>
-                            <li><a href="#">Horror</a></li>
-                            <li><a href="#">Fantasy</a></li>
+                            <li><a id="Fiction" class="categories">Fiction</a></li>
+                            <li><a id="Non-Fiction" class="categories">Non-Fiction</a></li>
+                            <li><a id="Science" class="categories">Science</a></li>
+                            <li><a id="Horror" class="categories">Horror</a></li>
+                            <li><a id="Fantasy" class="categories">Fantasy</a></li>
                         </ul>
                     </li>
                     <li class="item"><a href="#footer-about" onclick="hamberger()">About</a></li>
@@ -90,7 +90,7 @@
         <div class="moving_text">
             <marquee direction="left">LIMITED OFFER : Huge Disccount.Upto 70% off Order now and Grab the Deal</marquee>
         </div>
-        <h1><u>Best Collection</u></h1>
+        <h1 id="cat_head"><u>Best Collection</u></h1>
         <div id="card-section"></div>
     </div>
 
@@ -148,23 +148,25 @@
         }
 
         function hamberger() {
-            const bars = document.getElementsByClassName('bars')[0];
-            const cross = document.getElementsByClassName('close')[0];
-            const link = document.getElementById('link');
-            const nav = document.getElementsByClassName('nav');
-            if (bars.style.display === "none") {
-                cross.style.display = "none";
-                bars.style.display = "block";
-                link.style.display = "none";
-            }
-            else {
-                bars.style.display = "none";
-                cross.style.display = "block";
-                link.style.display = "flex";
-                link.style.justifyContent = "flex-end";
-                link.style.position = "absolute";
-                link.style.height = "100vh";
-                link.style.background = "rgba(0, 0, 0, 0.8)";
+            if(window.innerWidth<=770){
+                const bars = document.getElementsByClassName('bars')[0];
+                const cross = document.getElementsByClassName('close')[0];
+                const link = document.getElementById('link');
+                const nav = document.getElementsByClassName('nav');
+                if (bars.style.display === "none") {
+                    cross.style.display = "none";
+                    bars.style.display = "block";
+                    link.style.display = "none";
+                }
+                else {
+                    bars.style.display = "none";
+                    cross.style.display = "block";
+                    link.style.display = "flex";
+                    link.style.justifyContent = "flex-end";
+                    link.style.position = "absolute";
+                    link.style.height = "100vh";
+                    link.style.background = "rgba(0, 0, 0, 0.8)";
+                }
             }
         }
 
