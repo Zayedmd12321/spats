@@ -69,6 +69,15 @@ a {
     font-weight: 600;
 }
 
+#Categories {
+    margin: 0;
+}
+
+.Categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #accnt {
     display: flex;
@@ -554,6 +563,8 @@ a {
 
     .item{
         margin: 10px;
+        width: 100%;
+        text-align: center;
     }
 
     .bars,.close {

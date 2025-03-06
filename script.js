@@ -163,7 +163,7 @@ books.forEach(book => {
   // Create a div for each book
   // console.log(book)
   let category = book.category
-  if (val == category || val=="Categories⬇️"){
+  if (val == category || val=="Categories"){
   const bookDiv = document.createElement('div');
   bookDiv.className = 'card';
 
@@ -245,29 +245,31 @@ books.forEach(book => {
 }});
 }
 
-let category = document.getElementById('Categories⬇️').innerText;
+let category = document.getElementById('Categories').innerText;
 addBook(category);
 
 
 //Creating a dropdown in Categories
-document.querySelector('.dropdown > a').addEventListener('click', function (e) {
+document.getElementsByClassName('Categories')[0].addEventListener('click', function (e) {
   e.preventDefault();
   const dropdownMenu = document.querySelector('.dropdown-menu');
   dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 });
 
+//Changing the Category types when clicked in the dropdown menu
 function changeCategory(event) {
-  let present_category = document.getElementById('Categories⬇️').innerText;
+  let present_category = document.getElementById('Categories').innerText;
   let new_category = event.id;
-  document.getElementById('Categories⬇️').innerText = new_category;
+  document.getElementById('Categories').innerText = new_category;
 }
 
+//Adding the Desired book in the desired clicked category
 let catag = document.querySelectorAll('.categories')
 catag.forEach(cat=>{
   cat.addEventListener("click",function(event ){
     let clickedElement = event.target;
     let elementId = clickedElement.id;
-    document.getElementById('Categories⬇️').innerText = elementId;
+    document.getElementById('Categories').innerText = elementId;
     document.getElementById('cat_head').innerText = `${elementId} Books`
     document.getElementById('card-section').innerHTML = ""
     addBook(elementId)
