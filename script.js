@@ -165,7 +165,12 @@ books.forEach(book => {
   let category = book.category
   if (val == category || val=="Categories"){
   const bookDiv = document.createElement('div');
-  bookDiv.className = 'card';
+  if(window.innerWidth<=770){
+    bookDiv.className = i%2==0?'card left-fade-in':'card right-fade-in';
+  }
+  else{
+    bookDiv.className = ((i+1)%4==1||(i+1)%4==2)?'card left-fade-in':'card right-fade-in';
+  }
 
   // Add book details to the div
   bookDiv.innerHTML = `
@@ -258,7 +263,6 @@ document.getElementsByClassName('Categories')[0].addEventListener('click', funct
 
 //Changing the Category types when clicked in the dropdown menu
 function changeCategory(event) {
-  let present_category = document.getElementById('Categories').innerText;
   let new_category = event.id;
   document.getElementById('Categories').innerText = new_category;
 }
@@ -275,3 +279,44 @@ catag.forEach(cat=>{
     addBook(elementId)
   })
 })
+
+//Adding hamberger menu
+function openModal(index) {
+  document.getElementsByClassName("modal")[index].style.display = "flex";
+};
+
+function closeModal(index) {
+  document.getElementsByClassName("modal")[index].style.display = "none";
+}
+
+function hamberger() {
+  document.getElementsByClassName('dropdown-menu')[0].style.display = "none";
+  if(window.innerWidth<=770){
+      const bars = document.getElementsByClassName('bars')[0];
+      const cross = document.getElementsByClassName('close')[0];
+      const link = document.getElementById('link');
+      const nav = document.getElementsByClassName('nav');
+      if (bars.style.display === "none") {
+          cross.style.display = "none";
+          bars.style.display = "block";
+          link.style.display = "none";
+      }
+      else {
+          bars.style.display = "none";
+          cross.style.display = "block";
+          link.style.display = "flex";
+          link.style.justifyContent = "flex-end";
+          link.style.position = "absolute";
+          link.style.height = "100vh";
+          link.style.background = "rgba(0, 0, 0, 0.8)";
+          document.getElementsByClassName('dropdown-menu')[0].style.display = "block";
+      }
+  }
+}
+
+//Adding Animations cascading effect
+const nav_item = document.getElementsByClassName('fade-in');
+for (let i = 0; i < nav_item.length; i++) {
+  const element = nav_item[i];
+  element.style.animationDelay = (i<3)?`${(i+1)/10}s`:'0.3s';
+} 
