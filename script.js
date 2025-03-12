@@ -146,108 +146,76 @@ const books = [
   }
 ]
 
-
-
-
-
-
-
 // Select the container where the books will be displayed
 const booksContainer = document.getElementById('card-section');
 const body = document.querySelector('body');
-var i = 0
 
 function addBook(val){
-
-books.forEach(book => {
+  
+  let i = 0
+  books.forEach(book => {
   // Create a div for each book
   // console.log(book)
   let category = book.category
   if (val == category || val=="Categories"){
-  const bookDiv = document.createElement('div');
-  if(window.innerWidth<=770){
-    bookDiv.className = i%2==0?'card left-fade-in':'card right-fade-in';
-  }
-  else{
-    bookDiv.className = ((i+1)%4==1||(i+1)%4==2)?'card left-fade-in':'card right-fade-in';
-  }
+    const bookDiv = document.createElement('div');
+    if(window.innerWidth<=770)
+      bookDiv.className = i%2==0?'card left-fade-in':'card right-fade-in';
+    else
+      bookDiv.className = ((i+1)%4==1||(i+1)%4==2)?'card left-fade-in':'card right-fade-in';
 
-  // Add book details to the div
-  bookDiv.innerHTML = `
-         
-                <div class="book-image">
-                  <img src="${book.image}" alt="">
-                  <p class="price">₹${book.price}</p>
-                </div>
-                <div class="description">
-                <div class="about">
-                    <span class="book-name">${book.title}</span>
-                    <span class="author-name">-${book.author}</span>
-                </div>
-                    
-                        <button class="wishlist">
-                            <div class="mybtn">
-                            <span class="text">Add to Wishlist</span>
-                            <span class="btn-img1"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960"
+    // Add book details to the div
+    bookDiv.innerHTML = `
+          
+                  <div class="book-image">
+                    <img src="${book.image}" alt="">
+                    <p class="price">₹${book.price}</p>
+                  </div>
+                  <div class="description">
+                  <div class="about">
+                      <span class="book-name">${book.title}</span>
+                      <span class="author-name">-${book.author}</span>
+                  </div>
+                      
+                          <button class="wishlist">
+                              <div class="mybtn">
+                              <span class="text">Add to Wishlist</span>
+                              <span class="btn-img1"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960"
+                                  width="24px" fill="#fff">
+                                  <path
+                                      d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+                              </svg></span>
+                              </div>
+                          </button>
+                          <button class="buy">
+                              <div class="mybtn">
+                              <span class="text">Buy now</span>
+                              <span class="btn-img2"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960"
+                                  width="24px" fill="#fff">
+                                  <path
+                                      d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" />
+                              </svg></span>
+                              </div>
+                          </button>
+                          <button class="read-more" id=${i}>
+                              <div class="mybtn">
+                              <span class="text">Read More</span>
+                              <span class="btn-img3"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960" 
                                 width="24px" fill="#fff">
-                                <path
-                                    d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
-                            </svg></span>
-                            </div>
-                        </button>
-                        <button class="buy">
-                            <div class="mybtn">
-                            <span class="text">Buy now</span>
-                            <span class="btn-img2"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960"
-                                width="24px" fill="#fff">
-                                <path
-                                    d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" />
-                            </svg></span>
-                            </div>
-                        </button>
-                        <button class="read-more" onclick="openModal(${i})">
-                            <div class="mybtn">
-                            <span class="text">Read More</span>
-                            <span class="btn-img3"><svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 -960 960 960" 
-                               width="24px" fill="#fff">
-                               <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/>
-                               </svg></span>
-                            </div>
-                        </button>
-                    
-                </div>
-            
-      `;
+                                <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/>
+                                </svg></span>
+                              </div>
+                          </button>
+                      
+                  </div>
+              
+        `;
 
-  //Adding html
-  booksContainer.appendChild(bookDiv);
-
-
-  const modal = document.createElement('div');
-  modal.className = 'modal';
-
-  modal.innerHTML = `
-      <div class="modal-content">
-            <div class="modal-book-image">
-                <img src="${book.image}" alt="">
-            </div>
-            <div class="modal-desc">
-                <h2 class="modal-title">${book.title}</h2>
-                <h4 class="modal-author">${book.author}</h4>
-                <p class="modal-book-desc">${book.about}</p>
-            </div>
-            <div class="close-modal">
-                <span onclick="closeModal(${i})">&times;</span>
-            </div>
-        </div>
-      `;
-
-  body.appendChild(modal);
-
-
+    //Adding html
+    booksContainer.appendChild(bookDiv);
+  }
   i++;
-
-}});
+});
 }
 
 let category = document.getElementById('Categories').innerText;
@@ -277,6 +245,7 @@ catag.forEach(cat=>{
     document.getElementById('cat_head').innerText = `${elementId} Books`
     document.getElementById('card-section').innerHTML = ""
     addBook(elementId)
+    add_read_more();
   })
 })
 
@@ -320,3 +289,41 @@ for (let i = 0; i < nav_item.length; i++) {
   const element = nav_item[i];
   element.style.animationDelay = (i<3)?`${(i+1)/10}s`:'0.3s';
 } 
+
+(function add_read_more() {
+  const read_more_btn = document.getElementsByClassName('read-more');
+  for (let i = 0; i < read_more_btn.length; i++) {
+    const element = read_more_btn[i];
+    element.addEventListener('click',()=>{
+      let book = books[element.id];
+      console.log(book) 
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+
+      modal.innerHTML = `
+          <div class="modal-content">
+                <div class="modal-book-image">
+                    <img src="${book.image}" alt="">
+                </div>
+                <div class="modal-desc">
+                    <h2 class="modal-title">${book.title}</h2>
+                    <h4 class="modal-author">${book.author}</h4>
+                    <p class="modal-book-desc">${book.about}</p>
+                </div>
+                <div class="close-modal">
+                    <span onclick="closeModal()">&times;</span>
+                </div>
+            </div>
+          `;
+
+      body.append(modal);
+      modal.style.display = 'flex';
+    })
+  }
+})();
+
+function closeModal() {
+  const modal = document.querySelector('.modal');
+  modal.style.display = 'none';
+  modal.remove()
+}
