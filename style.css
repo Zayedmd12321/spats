@@ -370,10 +370,6 @@ a {
     background: #5fdf63;
 }
 
-/* .read-more:hover .btn-img3{
-    transform: rotate(360deg);
-} */
-
 .read-more:hover , .read-more:hover .btn-img3 {
     background-color: #49ab4c;
 }
@@ -383,7 +379,6 @@ a {
 }
 
 .card:hover {
-    /* transform: translate(5px,-10px); */
     box-shadow: 5px 2px 20px 5px rgba(30, 43, 52, 0.7);
 }
 

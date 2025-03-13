@@ -290,7 +290,7 @@ for (let i = 0; i < nav_item.length; i++) {
   element.style.animationDelay = (i<3)?`${(i+1)/10}s`:'0.3s';
 } 
 
-(function add_read_more() {
+function add_read_more() {
   const read_more_btn = document.getElementsByClassName('read-more');
   for (let i = 0; i < read_more_btn.length; i++) {
     const element = read_more_btn[i];
@@ -320,7 +320,9 @@ for (let i = 0; i < nav_item.length; i++) {
       modal.style.display = 'flex';
     })
   }
-})();
+};
+
+add_read_more()
 
 function closeModal() {
   const modal = document.querySelector('.modal');
